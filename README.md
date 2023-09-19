@@ -31,3 +31,51 @@
 
 3. **Efficiency and Scalability:**
     - Scaling up to process a large number of CVs and job descriptions efficiently could be a challenge. We addressed this by using batch processing and optimizing code for performance.
+
+### **Top 5 Candidates**
+
+Based on the job matching process, here are the top 5 candidates for each job description, along with their similarity scores:
+
+Job Description 1: [Top 5 Candidates]
+
+> Candidate A - Similarity Score: 0.89
+
+> Candidate B - Similarity Score: 0.87
+
+> Candidate C - Similarity Score: 0.85
+
+> Candidate D - Similarity Score: 0.83
+
+> Candidate E - Similarity Score: 0.82
+
+
+Job Description 2: [Top 5 Candidates]
+
+> Candidate X - Similarity Score: 0.91
+
+> Candidate Y - Similarity Score: 0.88
+
+> Candidate Z - Similarity Score: 0.87
+
+> Candidate A - Similarity Score: 0.85
+
+> Candidate B - Similarity Score: 0.84
+
+
+### **Recommendations and Insights**
+From the matching process, we can draw the following recommendations and insights:
+
+- Candidates with higher similarity scores are more aligned with the job descriptions and should be prioritized for further consideration.
+
+- Job Description 2 has a higher average similarity score, suggesting that candidates are better matched to this job.
+
+- It is essential to review the candidates' profiles, skills, and experiences to make informed hiring decisions.
+
+- The matching process can be further improved with additional data and fine-tuning of the text embeddings model.
+
+- Please replace the placeholders with actual details from your project, and ensure you provide your code/scripts as part of your submission.
+
+
+
+
+
