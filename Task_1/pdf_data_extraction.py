@@ -111,12 +111,45 @@ class PDFDataExtractor:
         text = ""
         try:
             with open(pdf_file, "rb") as pdf_file:
-                pdf_reader = PyPDF2.PdfFileReader(pdf_file)
-                for page_num in range(pdf_reader.getNumPages()):
-                    text += pdf_reader.getPage(page_num).extractText()
+                pdf_reader = PyPDF2.PdfReader(pdf_file)
+                for page_num in range(len(pdf_reader.pages)):
+                    text += pdf_reader.pages[page_num].extract_text()
         except FileNotFoundError:
             print(f"[-] File not found {pdf_file}")
         return text
+    
+    def extract_details_from_pdf_text(self, pdf_text: str) -> dict:
+        """
+        Extracts education, skills, and category information from PDF text.
+
+        Args:
+            pdf_text (str): Text extracted from a PDF.
+
+        Returns:
+            dict: Extracted details including 'Category', 'Skills', and 'Education'.
+        """
+        data = {}
+        
+        # Extract Category (assuming it's the first line)
+        lines = pdf_text.split('\n')
+        data['Category'] = lines[0].strip()
+
+        # Extract Skills
+        skills_match = re.search(r'SKILLS\s*([\s\S]*?)CERTIFICATIONS', pdf_text, re.IGNORECASE)
+        print(skills_match)
+        if skills_match:
+            skills_text = skills_match.group(1).strip()
+            skills = [line.strip() for line in skills_text.split('\n') if line.strip()]
+            data['Skills'] = skills
+
+        # Extract Education
+        education_match = re.search(r'EDUCATION(.*?)SKILLS', pdf_text, re.DOTALL)
+        if education_match:
+            education_text = education_match.group(1).strip()
+            education = [line.strip() for line in education_text.split('\n') if line.strip()]
+            data['Education'] = education
+
+        return data
 
     def extract_details(self, text) -> dict:
         """

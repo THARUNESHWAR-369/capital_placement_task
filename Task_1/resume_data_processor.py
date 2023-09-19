@@ -19,7 +19,7 @@ class ResumeDatasetProcessor:
     - process_dataset(): Processes the entire dataset and prints extracted details.
     """
 
-    def __init__(self, dataset_path: str) -> None:
+    def __init__(self, dataset_path: str = "dataset.csv") -> None:
         """
         Initializes a ResumeDatasetProcessor instance.
 
